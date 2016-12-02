@@ -1,4 +1,4 @@
-# AzureFunctionsIntroduction
+# AWSLambdaCSharpIntroduction
 
 This is Sample project for AWS Lambad with .NET Core C#. May this repository help you understand AWS Lambda better.
 
