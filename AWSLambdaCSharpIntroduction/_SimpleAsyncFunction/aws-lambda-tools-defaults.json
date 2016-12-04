@@ -13,7 +13,7 @@
   "configuration": "Release",
   "framework": "netcoreapp1.0",
   "function-runtime": "dotnetcore1.0",
-  "function-memory-size": 128,
+  "function-memory-size": 192,
   "function-timeout": 30,
-  "function-handler": "SimpleClassFunction::SimpleClassFunction.Function::FunctionHandler"
+  "function-handler": "SimpleAsyncFunction::SimpleAsyncFunction.Function::FunctionHandlerAsync"
 }

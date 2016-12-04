@@ -4,7 +4,7 @@ This is Sample project for AWS Lambad with .NET Core C#. May this repository hel
 
 # Recommend Lambda Functions settings for stability
 
-- Keep Function Memory more than 128MB
+- May be complex execution requires more than 128MB. Be careful with Max memory used.
 
 ![](images/MemorySettings.png)
 
@@ -14,7 +14,8 @@ This sample include following.
 
 FunctionName | Language | Description
 ---- | ---- | ----
-SimpleClassFunction | C# | Simple minumum set of JSON Input for AWS Lambda Sample.
+SimpleClassFunction | C# | Simple minumum set of JSON Input sample.
+SimpleAsyncFunction | C# | Simple minumum async/await with TEST for string Input sample. (SimpleAsyncFunction.Tests)
 
 # Reference
 
