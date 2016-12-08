@@ -45,7 +45,7 @@ namespace SlackSlashCommandWebhook
             if (string.IsNullOrWhiteSpace(validToken)) throw new NullReferenceException(slackTokenEnvironmentKey);
 
             // Validate
-            if (token == Environment.GetEnvironmentVariable("SlackToken")) return;
+            if (token == validToken) return;
             throw new UnauthorizedAccessException();
         }
     }
