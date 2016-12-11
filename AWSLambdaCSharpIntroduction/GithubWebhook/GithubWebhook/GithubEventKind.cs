@@ -1,0 +1,32 @@
+﻿namespace GithubWebhook
+{
+    public enum GithubEventKind
+    {
+        commit_comment,
+        create,
+        delete,
+        deployment,
+        deployment_status,
+        fork,
+        gollum,
+        issue_comment,
+        issues,
+        label,
+        member,
+        membership,
+        milestone,
+        organization,
+        page_build,
+        @public,
+        pull_request_review_comment,
+        pull_request_review,
+        pull_request,
+        push,
+        repository,
+        release,
+        status,
+        team,
+        team_add,
+        watch,
+    }
+}
