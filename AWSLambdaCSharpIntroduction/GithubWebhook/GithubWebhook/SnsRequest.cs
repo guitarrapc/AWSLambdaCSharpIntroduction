@@ -43,6 +43,6 @@ namespace GithubWebhook
     public class XGithubEvent
     {
         public string Type { get; set; }
-        public string Value { get; set; }
+        public GithubEventKind Value { get; set; }
     }
 }

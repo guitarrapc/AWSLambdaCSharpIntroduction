@@ -5,7 +5,6 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-
 using Amazon.Lambda.Core;
 using Amazon.Lambda.Serialization;
 using Newtonsoft.Json;
@@ -20,7 +19,7 @@ namespace GithubWebhook
         private readonly string webhookUrl = Environment.GetEnvironmentVariable("SlackWebhookUrl");
 
         /// <summary>
-        /// A simple function that takes a string and does a ToUpper
+        /// Github Webhook -> SNS -> Lambda Parse (HERE!!) -> Slack Executor
         /// </summary>
         /// <param name="input"></param>
         /// <param name="context"></param>
@@ -33,20 +32,40 @@ namespace GithubWebhook
                 throw new NullReferenceException(nameof(snsMessage));
             }
 
-            var githubEvent = input.Records.FirstOrDefault()?.Sns.MessageAttributes.XGithubEvent.Value;
-            if (string.IsNullOrEmpty(githubEvent))
+            var githubEvent = input.Records.FirstOrDefault()?.Sns.MessageAttributes.XGithubEvent?.Value;
+            if (!githubEvent.HasValue)
             {
                 throw new NullReferenceException(nameof(githubEvent));
             }
 
             dynamic githubWebhook = JsonConvert.DeserializeObject(input.Records.First().Sns.Message);
 
-            context.Logger.LogLine($"GitHub WebHook triggered!, {githubWebhook}");
-            var message = $@"New GitHub comment posted by {githubWebhook.comment.user.login} at {githubWebhook.repository.name},
-        Url : {githubWebhook.comment.url}
-        Tite : {githubWebhook.issue.title}
-        -----
-        {githubWebhook.comment.body}";
+            context.Logger.LogLine($"GitHub WebHook triggered");
+
+            var message = "";
+            switch (githubEvent.Value)
+            {
+                case GithubEventKind.issue_comment:
+                    {
+                        // Issue Comment
+                        message = $@"New GitHub issue comment posted by {githubWebhook.comment.user.login} at {githubWebhook.repository.name},
+Url : {githubWebhook.comment.url}
+Tite : {githubWebhook.issue.title}
+-----
+{githubWebhook.comment.body}";
+                        break;
+                    }
+                case GithubEventKind.issues:
+                    break;
+                case GithubEventKind.pull_request_review_comment:
+                    break;
+                case GithubEventKind.pull_request_review:
+                    break;
+                case GithubEventKind.pull_request:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
 
             var payload = new
             {
@@ -60,7 +79,7 @@ namespace GithubWebhook
             using (var client = new HttpClient())
             {
                 var res = await client.PostAsync(webhookUrl, new StringContent(jsonString, Encoding.UTF8, "application/json"));
-                return new Response(res.StatusCode, $"VSTS Build message. Message : {message}");
+                return new Response(res.StatusCode, $"Github webhook invoked. Message : {message}");
             }
         }
     }
