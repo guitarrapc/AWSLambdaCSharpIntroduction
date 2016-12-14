@@ -10,7 +10,7 @@ namespace SimpleAsyncFunction
         public static void Main(string[] args)
         {
             // Local Async Execution will fail with NullReference Exception when using Logger.
-            var responseTask = new Function().FunctionHandlerAsync("hoge", null);
+            var responseTask = new Function().FunctionHandlerAsync("hoge", new LambdaContext());
             var response = responseTask.Result;
             Console.WriteLine(response);
         }

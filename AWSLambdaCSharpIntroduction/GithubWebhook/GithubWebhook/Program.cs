@@ -39,7 +39,7 @@ namespace GithubWebhook
 }
 ";
             var input = JsonConvert.DeserializeObject<SnsRequest>(eventJson);
-            var responseTask = new Function().FunctionHandlerAsync(input, null);
+            var responseTask = new Function().FunctionHandlerAsync(input, new LambdaContext());
             var response = responseTask.Result;
             Console.WriteLine(response);
         }

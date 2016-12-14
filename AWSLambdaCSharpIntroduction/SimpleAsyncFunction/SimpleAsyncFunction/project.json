@@ -9,10 +9,8 @@
       "type": "platform",
       "version": "1.0.0"
     },
-
     "Amazon.Lambda.Core": "1.0.0*",
     "Amazon.Lambda.Serialization.Json": "1.0.1",
-
     "Amazon.Lambda.Tools": {
       "type": "build",
       "version": "1.0.0-preview1"

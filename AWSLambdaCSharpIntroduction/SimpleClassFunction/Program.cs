@@ -15,7 +15,7 @@ namespace SimpleClassFunction
                 StrArray = new[] { "hoge", "huga", "foo" },
             };
 
-            var response = new Function().FunctionHandler(test, null);
+            var response = new Function().FunctionHandler(test, new LambdaContext());
         }
     }
 }
