@@ -14,7 +14,8 @@
     "Amazon.Lambda.Tools": {
       "type": "build",
       "version": "1.0.0-preview1"
-    }
+    },
+    "LambdaShared": "1.0.0-*"
   },
 
   "tools": {

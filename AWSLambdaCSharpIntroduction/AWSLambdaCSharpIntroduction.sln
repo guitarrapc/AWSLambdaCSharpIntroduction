@@ -17,6 +17,17 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "GithubWebhook", "GithubWebh
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "GithubWebhook.Tests", "GithubWebhook\GithubWebhook.Tests\GithubWebhook.Tests.xproj", "{87E839C2-CCE9-42C2-A3B6-FF9A855757FC}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SendToChatwork", "SendToChatwork\SendToChatwork\SendToChatwork.xproj", "{F3BC65CD-09E9-412E-8862-A1B39F95339A}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SendToChatwork.Tests", "SendToChatwork\SendToChatwork.Tests\SendToChatwork.Tests.xproj", "{28308C44-1D04-46DD-8AEB-0D741ECDE92B}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LambdaShared", "LambdaShared\LambdaShared.xproj", "{EBC20C25-3D20-4668-AE2D-0CB454EB2578}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{33CADDEF-2606-4D1E-AB00-9982BF9020E0}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +62,18 @@ Global
 		{87E839C2-CCE9-42C2-A3B6-FF9A855757FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87E839C2-CCE9-42C2-A3B6-FF9A855757FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87E839C2-CCE9-42C2-A3B6-FF9A855757FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3BC65CD-09E9-412E-8862-A1B39F95339A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3BC65CD-09E9-412E-8862-A1B39F95339A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3BC65CD-09E9-412E-8862-A1B39F95339A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3BC65CD-09E9-412E-8862-A1B39F95339A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28308C44-1D04-46DD-8AEB-0D741ECDE92B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28308C44-1D04-46DD-8AEB-0D741ECDE92B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28308C44-1D04-46DD-8AEB-0D741ECDE92B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28308C44-1D04-46DD-8AEB-0D741ECDE92B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBC20C25-3D20-4668-AE2D-0CB454EB2578}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBC20C25-3D20-4668-AE2D-0CB454EB2578}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBC20C25-3D20-4668-AE2D-0CB454EB2578}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBC20C25-3D20-4668-AE2D-0CB454EB2578}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

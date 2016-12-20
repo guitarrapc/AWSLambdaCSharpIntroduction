@@ -1,7 +1,7 @@
 ﻿using System;
 using Amazon.Lambda.Core;
 
-namespace SlackSlashCommandWebhook
+namespace LambdaShared
 {
     /// <summary>
     /// Implementation for Local Debug
