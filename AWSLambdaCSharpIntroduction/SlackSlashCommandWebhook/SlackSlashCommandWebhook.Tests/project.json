@@ -17,7 +17,6 @@
     "SlackSlashCommandWebhook": "1.0.0",
 
     "xunit": "2.1.0-*",
-    "moq.netcore": "4.4.0-beta8",
     "dotnet-test-xunit": "2.2.0-*"
   },
 
