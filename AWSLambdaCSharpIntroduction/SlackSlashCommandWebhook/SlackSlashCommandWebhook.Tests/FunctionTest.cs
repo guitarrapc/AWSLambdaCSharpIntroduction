@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Xunit;
 using Amazon.Lambda.Core;
 using Amazon.Lambda.TestUtilities;
-using Moq;
 using Newtonsoft.Json;
 using SlackSlashCommandWebhook;
 
