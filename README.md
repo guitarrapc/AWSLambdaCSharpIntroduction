@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/guitarrapc/AWSLambdaCSharpIntroduction.svg?style=svg)](https://circleci.com/gh/guitarrapc/AWSLambdaCSharpIntroduction)
+
 # AWSLambdaCSharpIntroduction
 
 This is Sample project for AWS Lambad with .NET Core C#. May this repository help you understand AWS Lambda better.
