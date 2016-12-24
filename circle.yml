@@ -18,7 +18,7 @@ test:
 
 deployment:
   master:
-    branch: master
+    branch: CircleCI
     commands:
       - cd AWSLambdaCSharpIntroduction/GithubWebhook/GithubWebhook && dotnet lambda deploy-function GithubWebhook
       - cd AWSLambdaCSharpIntroduction/SendToChatwork/SendToChatwork && dotnet lambda deploy-function SendToChatwork
