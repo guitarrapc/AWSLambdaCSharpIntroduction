@@ -4,7 +4,7 @@ dependencies:
     - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
     - sudo apt-get update
     # - sudo apt-get install dotnet-dev-1.0.0-preview2.1-003177
-    - sudo apt-get install dotnet-dev-1.0.0-preview2-003131
+    - sudo apt-get install dotnet-dev-1.0.0-preview2-003156
   override:
     - dotnet restore
 
@@ -19,7 +19,7 @@ test:
 
 deployment:
   master:
-    branch: CircleCI
+    branch: master
     commands:
       - cd AWSLambdaCSharpIntroduction/GithubWebhook/GithubWebhook && dotnet lambda deploy-function
       - cd AWSLambdaCSharpIntroduction/SendToChatwork/SendToChatwork && dotnet lambda deploy-function
