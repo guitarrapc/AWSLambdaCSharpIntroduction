@@ -8,12 +8,14 @@
     "All the command line options for the Lambda command can be specified in this file."
   ],
 
-  "profile": "",
-  "region": "",
+  "profile": "default",
+  "region": "ap-northeast-1",
   "configuration": "Release",
   "framework": "netcoreapp1.0",
   "function-runtime": "dotnetcore1.0",
   "function-memory-size": 128,
   "function-timeout": 30,
-  "function-handler": "SimpleClassFunction::SimpleClassFunction.Function::FunctionHandler"
+  "function-handler": "SimpleClassFunction::SimpleClassFunction.Function::FunctionHandler",
+  "function-name": "SimpleClassFunction",
+  "function-role": "arn:aws:iam::158352693096:role/service-role/lambda_exec_role"
 }

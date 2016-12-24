@@ -1,0 +1,29 @@
+dependencies:
+  pre:
+    - sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
+    - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+    - sudo apt-get update
+    # - sudo apt-get install dotnet-dev-1.0.0-preview2.1-003177
+    - sudo apt-get install dotnet-dev-1.0.0-preview2-003156
+  override:
+    - dotnet restore
+
+test:
+  override:
+    - cd AWSLambdaCSharpIntroduction/LambdaShared && dotnet build
+    - cd AWSLambdaCSharpIntroduction/GithubWebhook/GithubWebhook && dotnet build
+    - cd AWSLambdaCSharpIntroduction/SendToChatwork/SendToChatwork && dotnet build
+    - cd AWSLambdaCSharpIntroduction/SimpleAsyncFunction/SimpleAsyncFunction && dotnet build
+    - cd AWSLambdaCSharpIntroduction/SimpleClassFunction && dotnet build
+    - cd AWSLambdaCSharpIntroduction/SlackSlashCommandWebhook/SlackSlashCommandWebhook && dotnet build
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - cd AWSLambdaCSharpIntroduction/GithubWebhook/GithubWebhook && dotnet lambda deploy-function
+      - cd AWSLambdaCSharpIntroduction/SendToChatwork/SendToChatwork && dotnet lambda deploy-function
+      - cd AWSLambdaCSharpIntroduction/SimpleAsyncFunction/SimpleAsyncFunction && dotnet lambda deploy-function
+      - cd AWSLambdaCSharpIntroduction/SimpleClassFunction && dotnet lambda deploy-function
+      - cd AWSLambdaCSharpIntroduction/SlackSlashCommandWebhook/SlackSlashCommandWebhook && dotnet lambda deploy-function
+      
