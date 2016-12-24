@@ -14,7 +14,8 @@ namespace SlackSlashCommandWebhook
 {
     public class Function
     {
-        private static readonly string slackTokenEnvironmentKey = "SlackToken";
+        private static readonly string validToken = Environment.GetEnvironmentVariable("SlackToken");
+
         /// <summary>
         /// A simple function that takes a string and does a ToUpper
         /// </summary>
@@ -29,24 +30,16 @@ namespace SlackSlashCommandWebhook
             var result = new ParseResult(split);
 
             // Authentication Validation
-            ValidateToken(result.Token);
+            if (string.IsNullOrWhiteSpace(validToken)) throw new NullReferenceException(validToken);
+
+            // Validate
+            if (result.Token != validToken) throw new UnauthorizedAccessException();
 
             // For Test purpose. You can check what was request strings.
             //return new Result("in_channel", input.Body);
 
             // Only you can see response when you change in_channel -> ephemeral.
             return new Result("in_channel", "Hello from Lambda .NET Core.");
-        }
-
-        private void ValidateToken(string token)
-        {
-            // Get Valid Token from AWS Lambda Environment Variable
-            var validToken = Environment.GetEnvironmentVariable(slackTokenEnvironmentKey);
-            if (string.IsNullOrWhiteSpace(validToken)) throw new NullReferenceException(slackTokenEnvironmentKey);
-
-            // Validate
-            if (token == validToken) return;
-            throw new UnauthorizedAccessException();
         }
     }
 

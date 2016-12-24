@@ -13,15 +13,16 @@ namespace SlackSlashCommandWebhook.Tests
 {
     public class FunctionTest
     {
+        private static readonly string validToken = Environment.GetEnvironmentVariable("SlackToken");
         [Fact]
         public void SlashCommandTest()
         {
             // Invoke the lambda function and confirm the string was upper cased.
             var function = new Function();
             var context = new TestLambdaContext();
-            var input = @"{
-  ""body"": ""token=XXXXXXXXXXXXXXXXXXXXXX&team_id=1234&team_domain=hogemoge&channel_id=1234&channel_name=hogemoge&user_id=hogemoge&user_name=hogemoge&command=%2Fnow&text=&response_url=https%3A%2F%2Fhooks.slack.com%2Fcommands%2123%2F456%2F789""
-}";
+            var input = $@"{{
+  ""body"": ""token={validToken}&team_id=1234&team_domain=hogemoge&channel_id=1234&channel_name=hogemoge&user_id=hogemoge&user_name=hogemoge&command=%2Fnow&text=&response_url=https%3A%2F%2Fhooks.slack.com%2Fcommands%2123%2F456%2F789""
+}}";
             var command = JsonConvert.DeserializeObject<SlackSlashCommand>(input);
             var response = function.FunctionHandlerAsync(command, context).Result;
 
