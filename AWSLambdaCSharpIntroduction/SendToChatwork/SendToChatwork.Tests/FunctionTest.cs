@@ -23,6 +23,7 @@ namespace SendToChatwork.Tests
                 Channel = int.Parse(Environment.GetEnvironmentVariable("ChatworkChannel")),
                 Text = "Send from AWS Lambda"
             };
+            Console.WriteLine(input.Channel);
             var result = await function.FunctionHandler(input, context);
 
             Assert.IsType<int>(result);
