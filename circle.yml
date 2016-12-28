@@ -21,12 +21,14 @@ test:
     - cd AWSLambdaCSharpIntroduction/SimpleAsyncFunction/SimpleAsyncFunction && dotnet build
     - cd AWSLambdaCSharpIntroduction/SimpleClassFunction && dotnet build
     - cd AWSLambdaCSharpIntroduction/SlackSlashCommandWebhook/SlackSlashCommandWebhook && dotnet build
+    - cd AWSLambdaCSharpIntroduction/UnityCloudBuildNotificationProxy/UnityCloudBuildNotificationProxy && dotnet build
 
     # test runner
     - cd AWSLambdaCSharpIntroduction/GithubWebhook/GithubWebhook.Tests && dotnet test 
     - cd AWSLambdaCSharpIntroduction/SendToChatwork/SendToChatwork.Tests && dotnet test
     - cd AWSLambdaCSharpIntroduction/SimpleAsyncFunction/SimpleAsyncFunction.Tests && dotnet test
     - cd AWSLambdaCSharpIntroduction/SlackSlashCommandWebhook/SlackSlashCommandWebhook.Tests && dotnet test
+    - cd AWSLambdaCSharpIntroduction/UnityCloudBuildNotificationProxy/UnityCloudBuildNotificationProxy.Tests && dotnet test
 
 deployment:
   master:
@@ -37,4 +39,5 @@ deployment:
       - cd AWSLambdaCSharpIntroduction/SimpleAsyncFunction/SimpleAsyncFunction && dotnet lambda deploy-function
       - cd AWSLambdaCSharpIntroduction/SimpleClassFunction && dotnet lambda deploy-function
       - cd AWSLambdaCSharpIntroduction/SlackSlashCommandWebhook/SlackSlashCommandWebhook && dotnet lambda deploy-function
+      - cd AWSLambdaCSharpIntroduction/UnityCloudBuildNotificationProxy/UnityCloudBuildNotificationProxy && dotnet lambda deploy-function
       
