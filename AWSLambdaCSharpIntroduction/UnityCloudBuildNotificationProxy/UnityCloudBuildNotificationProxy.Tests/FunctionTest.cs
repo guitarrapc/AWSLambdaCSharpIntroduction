@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using Xunit;
@@ -111,7 +112,16 @@ namespace UnityCloudBuildNotificationProxy.Tests
             var json = ValidJson;
             dynamic input = JsonConvert.DeserializeObject(json);
             var result = function.FunctionHandler(input, context);
-            Assert.Equal("[info][title]Unity Cloud Build #14: Build queued (Started by : Build User <builduser@domain.com>)[/title]\r\nhttps://developer.cloud.unity3d.com/build/orgs/my-org/projects/my-project/buildtargets/mac-desktop-32-bit-build/builds/14/summary\r\n[title]Platform : standaloneosxintel[/title]Mac desktop 32-bit build[/info]", result);
+            var expected = "[info][title]Unity Cloud Build #14: Build queued (Started by : Build User <builduser@domain.com>)[/title]\r\nhttps://developer.cloud.unity3d.com/build/orgs/my-org/projects/my-project/buildtargets/mac-desktop-32-bit-build/builds/14/summary\r\n[title]Platform : standaloneosxintel[/title]Mac desktop 32-bit build[/info]";
+            Assert.Equal(NormalizeNewLine(expected), NormalizeNewLine(result));
+        }
+        #endregion
+
+        #region Helper
+
+        private string NormalizeNewLine(string text)
+        {
+            return Regex.Replace(text, @"\r\n|\n\r|\n|\r", @"\n");
         }
         #endregion
     }
