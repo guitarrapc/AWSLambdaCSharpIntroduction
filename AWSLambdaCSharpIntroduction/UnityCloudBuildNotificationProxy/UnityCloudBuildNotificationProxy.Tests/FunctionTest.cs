@@ -112,7 +112,7 @@ namespace UnityCloudBuildNotificationProxy.Tests
             var json = ValidJson;
             dynamic input = JsonConvert.DeserializeObject(json);
             var result = function.FunctionHandler(input, context);
-            var expected = "[info][title]Unity Cloud Build #14: Build queued (Started by : Build User <builduser@domain.com>)[/title]\r\nhttps://developer.cloud.unity3d.com/build/orgs/my-org/projects/my-project/buildtargets/mac-desktop-32-bit-build/builds/14/summary\r\n[title]Platform : standaloneosxintel[/title]Mac desktop 32-bit build[/info]";
+            var expected = "[info][title]Unity Cloud Build #14: Build queued[/title]Platform : standaloneosxintel\r\nMac desktop 32-bit build\r\n[hr]https://developer.cloud.unity3d.com/build/orgs/my-org/projects/my-project/buildtargets/mac-desktop-32-bit-build/builds/14/summary\r\nStarted by : Build User <builduser@domain.com>[/info]";
             Assert.Equal(NormalizeNewLine(expected), NormalizeNewLine(result));
         }
         #endregion

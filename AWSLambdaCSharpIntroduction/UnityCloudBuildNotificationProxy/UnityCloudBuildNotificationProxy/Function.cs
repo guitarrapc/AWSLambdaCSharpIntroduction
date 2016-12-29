@@ -57,9 +57,10 @@ namespace UnityCloudBuildNotificationProxy
             }
 
             var data = JsonConvert.DeserializeObject<UnityCloudBuildWebhook>(rawJson);
-            var message = $@"[info][title]Unity Cloud Build #{data.body.buildNumber}: Build {data.body.buildStatus} (Started by : {data.body.startedBy})[/title]
-https://developer.cloud.unity3d.com{data.body.links.dashboard_summary.href}
-[title]Platform : {data.body.platform}[/title]{data.body.buildTargetName}[/info]";
+            var message = $@"[info][title]Unity Cloud Build #{data.body.buildNumber}: Build {data.body.buildStatus}[/title]Platform : {data.body.platform}
+{data.body.buildTargetName}
+[hr]https://developer.cloud.unity3d.com{data.body.links.dashboard_summary.href}
+Started by : {data.body.startedBy}[/info]";
 
             var notification = new ChatworkNotification
             {
