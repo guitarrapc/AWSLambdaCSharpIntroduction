@@ -17,5 +17,5 @@
   "function-timeout": 30,
   "function-handler": "UnityCloudBuildNotificationProxy::UnityCloudBuildNotificationProxy.Function::FunctionHandler",
   "function-name": "UnityCloudBuildNotificationProxy",
-  "function-role": "arn:aws:iam::158352693096:role/service-role/lambda_exec_role"
+  "function-role": "arn:aws:iam::158352693096:role/lambda_collaborate_role"
 }

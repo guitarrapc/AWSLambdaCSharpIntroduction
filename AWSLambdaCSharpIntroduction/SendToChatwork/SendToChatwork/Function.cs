@@ -14,7 +14,7 @@ namespace SendToChatwork
 {
     public class Function
     {
-        private readonly string chatworkApiKey = Environment.GetEnvironmentVariable("ChatworkApiKey");
+        private static readonly string chatworkApiKey = Environment.GetEnvironmentVariable("ChatworkApiKey");
 
         /// <summary>
         /// A simple function that takes a string and does a ToUpper

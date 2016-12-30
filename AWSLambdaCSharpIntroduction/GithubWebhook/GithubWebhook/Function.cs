@@ -16,7 +16,7 @@ namespace GithubWebhook
 {
     public class Function
     {
-        private readonly string webhookUrl = Environment.GetEnvironmentVariable("SlackWebhookUrl");
+        private static readonly string webhookUrl = Environment.GetEnvironmentVariable("SlackWebhookUrl");
 
         /// <summary>
         /// Github Webhook -> SNS -> Lambda Parse (HERE!!) -> Slack Executor

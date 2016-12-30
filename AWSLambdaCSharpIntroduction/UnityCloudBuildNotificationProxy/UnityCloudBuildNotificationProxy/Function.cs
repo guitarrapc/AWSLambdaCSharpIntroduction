@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Amazon.Lambda;
 using Amazon.Lambda.Core;
 using Amazon.Lambda.Serialization;
 using Newtonsoft.Json;
@@ -14,7 +14,18 @@ namespace UnityCloudBuildNotificationProxy
 {
     public class Function
     {
-        private static string channel = Environment.GetEnvironmentVariable("ChatworkChannel");
+        private const string ChatworkFunctionName = "SendToChatwork";
+
+        private static readonly string channel = Environment.GetEnvironmentVariable("ChatworkChannel");
+        private static string Region => Environment.GetEnvironmentVariable("AWS_DEFAULT_REGION");
+#if DEBUG
+        private static string AccessKey => Environment.GetEnvironmentVariable("AWS_ACCESS_KEY_ID");
+        private static string SecretAccessKey => Environment.GetEnvironmentVariable("AWS_SECRET_ACCESS_KEY");
+        private static AmazonLambdaClient LambdaClient => new AmazonLambdaClient(AccessKey, SecretAccessKey, Amazon.RegionEndpoint.GetBySystemName(Region));
+#elif RELEASE
+        private static AmazonLambdaClient LambdaClient => new AmazonLambdaClient(Amazon.RegionEndpoint.GetBySystemName(Region));
+#endif
+
         /// <summary>
         /// A simple function that takes a string and does a ToUpper
         /// </summary>
@@ -25,6 +36,7 @@ namespace UnityCloudBuildNotificationProxy
         {
             // Check json input string.
             context.Logger.LogLine("UnityCloudBuildNotificationProxy webhook started!");
+            context.Logger.LogLine(Region);
             var rawJson = input.ToString();
             context.Logger.LogLine(rawJson);
 
@@ -67,7 +79,14 @@ Started by : {data.body.startedBy}[/info]";
                 Channel = channelId,
                 Text = message,
             };
-            // TODO : Pass to SendToChatwork Lambda function when Chatwork recover from Maintenance.
+
+            // Pass to SendToChatwork Lambda function when Chatwork recover from Maintenance.
+            var result = LambdaClient.InvokeAsync(new Amazon.Lambda.Model.InvokeRequest
+            {
+                FunctionName = ChatworkFunctionName,
+                Payload = JsonConvert.SerializeObject(notification),
+            }).Result;
+            context.Logger.LogLine(result.HttpStatusCode.ToString());
             return message;
         }
     }
