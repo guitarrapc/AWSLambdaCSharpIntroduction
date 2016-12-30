@@ -15,7 +15,7 @@
   "function-runtime": "dotnetcore1.0",
   "function-memory-size": 128,
   "function-timeout": 30,
-  "function-handler": "SlackSlashCommandWebhook::SlackSlashCommandWebhook.Function::FunctionHandlerAsync",
-  "function-name": "SlackSlashCommandWebhook",
-  "function-role": "arn:aws:iam::158352693096:role/service-role/lambda_exec_role"
+  "function-handler": "UnityCloudBuildNotificationProxy::UnityCloudBuildNotificationProxy.Function::FunctionHandler",
+  "function-name": "UnityCloudBuildNotificationProxy",
+  "function-role": "arn:aws:iam::158352693096:role/lambda_collaborate_role"
 }

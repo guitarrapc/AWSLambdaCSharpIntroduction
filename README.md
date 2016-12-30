@@ -20,7 +20,8 @@ GithubWebhook | C# | Github - Slack Integration with AWS Lambda sample.
 SendToChatwork | C# | Send message to Chatwork sample.
 SimpleClassFunction | C# | Simple minumum set of JSON Input sample.
 SimpleAsyncFunction | C# | Simple minumum async/await with TEST for string Input sample. (SimpleAsyncFunction.Tests)
-SlackSlashCommandWebhook | C# | Slack Slash Command sample with ```API Gateway``` + ```AWS Lambda```.
+SlackSlashCommandWebhook | C# | Slack Slash Command sample with ```API Gateway```.
+UnityCloudBuildNotificationProxy | C# | Unity Cloud build webhook notification to Chatwork sample with ```API Gateway``` + nested ```AWS Lambda```.
 
 # Reference
 
