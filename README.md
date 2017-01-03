@@ -16,6 +16,7 @@ This sample include following.
 
 FunctionName | Language | Description
 ---- | ---- | ----
+EnvironmentVariables | C# | Sample code to read Environment variable set in the AWS Lambda function.
 GithubWebhook | C# | Github - Slack Integration with AWS Lambda sample.
 SendToChatwork | C# | Send message to Chatwork sample.
 SimpleClassFunction | C# | Simple minumum set of JSON Input sample.
