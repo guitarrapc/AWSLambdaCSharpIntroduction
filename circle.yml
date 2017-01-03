@@ -16,6 +16,7 @@ test:
   override:
     # build runner (debug)
     - cd src/LambdaShared && dotnet build --configuration Debug
+    - cd src/EnvironmentVariables/EnvironmentVariables && dotnet build --configuration Debug
     - cd src/GithubWebhook/GithubWebhook && dotnet build --configuration Debug
     - cd src/SendToChatwork/SendToChatwork && dotnet build --configuration Debug
     - cd src/SimpleAsyncFunction/SimpleAsyncFunction && dotnet build --configuration Debug
@@ -24,6 +25,7 @@ test:
     - cd src/UnityCloudBuildNotificationProxy/UnityCloudBuildNotificationProxy && dotnet build --configuration Debug
 
     # test runner (debug)
+    - cd src/EnvironmentVariables/EnvironmentVariables.Tests && dotnet test --configuration Debug
     - cd src/GithubWebhook/GithubWebhook.Tests && dotnet test --configuration Debug
     - cd src/SendToChatwork/SendToChatwork.Tests && dotnet test --configuration Debug
     - cd src/SimpleAsyncFunction/SimpleAsyncFunction.Tests && dotnet test --configuration Debug
@@ -34,6 +36,7 @@ deployment:
   master:
     branch: master
     commands:
+      - cd src/EnvironmentVariables/EnvironmentVariables && dotnet lambda deploy-function
       - cd src/GithubWebhook/GithubWebhook && dotnet lambda deploy-function
       - cd src/SendToChatwork/SendToChatwork && dotnet lambda deploy-function
       - cd src/SimpleAsyncFunction/SimpleAsyncFunction && dotnet lambda deploy-function
