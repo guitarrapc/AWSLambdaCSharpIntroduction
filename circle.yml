@@ -15,29 +15,29 @@ dependencies:
 test:
   override:
     # build runner (debug)
-    - cd AWSLambdaCSharpIntroduction/LambdaShared && dotnet build --configuration Debug
-    - cd AWSLambdaCSharpIntroduction/GithubWebhook/GithubWebhook && dotnet build --configuration Debug
-    - cd AWSLambdaCSharpIntroduction/SendToChatwork/SendToChatwork && dotnet build --configuration Debug
-    - cd AWSLambdaCSharpIntroduction/SimpleAsyncFunction/SimpleAsyncFunction && dotnet build --configuration Debug
-    - cd AWSLambdaCSharpIntroduction/SimpleClassFunction && dotnet build --configuration Debug
-    - cd AWSLambdaCSharpIntroduction/SlackSlashCommandWebhook/SlackSlashCommandWebhook && dotnet build --configuration Debug
-    - cd AWSLambdaCSharpIntroduction/UnityCloudBuildNotificationProxy/UnityCloudBuildNotificationProxy && dotnet build --configuration Debug
+    - cd src/LambdaShared && dotnet build --configuration Debug
+    - cd src/GithubWebhook/GithubWebhook && dotnet build --configuration Debug
+    - cd src/SendToChatwork/SendToChatwork && dotnet build --configuration Debug
+    - cd src/SimpleAsyncFunction/SimpleAsyncFunction && dotnet build --configuration Debug
+    - cd src/SimpleClassFunction && dotnet build --configuration Debug
+    - cd src/SlackSlashCommandWebhook/SlackSlashCommandWebhook && dotnet build --configuration Debug
+    - cd src/UnityCloudBuildNotificationProxy/UnityCloudBuildNotificationProxy && dotnet build --configuration Debug
 
     # test runner (debug)
-    - cd AWSLambdaCSharpIntroduction/GithubWebhook/GithubWebhook.Tests && dotnet test --configuration Debug
-    - cd AWSLambdaCSharpIntroduction/SendToChatwork/SendToChatwork.Tests && dotnet test --configuration Debug
-    - cd AWSLambdaCSharpIntroduction/SimpleAsyncFunction/SimpleAsyncFunction.Tests && dotnet test --configuration Debug
-    - cd AWSLambdaCSharpIntroduction/SlackSlashCommandWebhook/SlackSlashCommandWebhook.Tests && dotnet test --configuration Debug
-    - cd AWSLambdaCSharpIntroduction/UnityCloudBuildNotificationProxy/UnityCloudBuildNotificationProxy.Tests && dotnet test --configuration Debug
+    - cd src/GithubWebhook/GithubWebhook.Tests && dotnet test --configuration Debug
+    - cd src/SendToChatwork/SendToChatwork.Tests && dotnet test --configuration Debug
+    - cd src/SimpleAsyncFunction/SimpleAsyncFunction.Tests && dotnet test --configuration Debug
+    - cd src/SlackSlashCommandWebhook/SlackSlashCommandWebhook.Tests && dotnet test --configuration Debug
+    - cd src/UnityCloudBuildNotificationProxy/UnityCloudBuildNotificationProxy.Tests && dotnet test --configuration Debug
 
 deployment:
   master:
     branch: master
     commands:
-      - cd AWSLambdaCSharpIntroduction/GithubWebhook/GithubWebhook && dotnet lambda deploy-function
-      - cd AWSLambdaCSharpIntroduction/SendToChatwork/SendToChatwork && dotnet lambda deploy-function
-      - cd AWSLambdaCSharpIntroduction/SimpleAsyncFunction/SimpleAsyncFunction && dotnet lambda deploy-function
-      - cd AWSLambdaCSharpIntroduction/SimpleClassFunction && dotnet lambda deploy-function
-      - cd AWSLambdaCSharpIntroduction/SlackSlashCommandWebhook/SlackSlashCommandWebhook && dotnet lambda deploy-function
-      - cd AWSLambdaCSharpIntroduction/UnityCloudBuildNotificationProxy/UnityCloudBuildNotificationProxy && dotnet lambda deploy-function
+      - cd src/GithubWebhook/GithubWebhook && dotnet lambda deploy-function
+      - cd src/SendToChatwork/SendToChatwork && dotnet lambda deploy-function
+      - cd src/SimpleAsyncFunction/SimpleAsyncFunction && dotnet lambda deploy-function
+      - cd src/SimpleClassFunction && dotnet lambda deploy-function
+      - cd src/SlackSlashCommandWebhook/SlackSlashCommandWebhook && dotnet lambda deploy-function
+      - cd src/UnityCloudBuildNotificationProxy/UnityCloudBuildNotificationProxy && dotnet lambda deploy-function
       
