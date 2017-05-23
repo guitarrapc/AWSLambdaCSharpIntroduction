@@ -7,9 +7,9 @@ dependencies:
     # refer dotnet version : https://www.microsoft.com/net/download/linux
     # use .net core 1.1
     - sudo apt-get install dotnet-dev-1.0.4
+    - dotnet --version
   override:
     - dotnet restore
-    - dotnet --version
 
 test:
   override:
