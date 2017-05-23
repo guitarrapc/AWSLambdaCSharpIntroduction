@@ -1,14 +1,12 @@
 dependencies:
   pre:
-    # refer .net core installation for Ubuntu 16.x : https://www.microsoft.com/net/core#linuxubuntu
+    # refer .net core installation for Ubuntu 14.04 : https://www.microsoft.com/net/core#linuxubuntu
     - sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
     - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
     - sudo apt-get update
     # refer dotnet version : https://www.microsoft.com/net/download/linux
-    # do not use .net core 1.1
-    # - sudo apt-get install dotnet-dev-1.0.0-preview2.1-003177
-    # use .net core 1.0
-    - sudo apt-get install dotnet-dev-1.0.0-preview2-003156
+    # use .net core 1.1
+    - sudo apt-get install dotnet-dev-1.0.4
   override:
     - dotnet restore
 
