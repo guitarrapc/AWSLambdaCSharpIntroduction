@@ -9,7 +9,7 @@ dependencies:
     - sudo apt-get install dotnet-dev-1.0.4
   override:
     - dotnet restore
-    - dotnet
+    - dotnet --version
 
 test:
   override:
