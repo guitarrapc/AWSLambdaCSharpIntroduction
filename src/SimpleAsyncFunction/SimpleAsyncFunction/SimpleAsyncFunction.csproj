@@ -6,6 +6,7 @@
     <OutputType>Exe</OutputType>
     <PackageId>SimpleAsyncFunction</PackageId>
     <RuntimeFrameworkVersion>1.1.0</RuntimeFrameworkVersion>
+    <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
     <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
     <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
